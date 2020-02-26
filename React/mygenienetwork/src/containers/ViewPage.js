@@ -87,7 +87,7 @@ class ViewPage extends Component {
             member_confirmpassword: this.state.confirmPassword,
           };
           console.log(data);
-          axios.post('https://localhost:44383/api/SignUp', data)
+          axios.post('https://localhost:44383/api/memberSignUp', data)
               .then(response => {
                   console.log(response.data);
                   this.setState({Message:response.data.Message})

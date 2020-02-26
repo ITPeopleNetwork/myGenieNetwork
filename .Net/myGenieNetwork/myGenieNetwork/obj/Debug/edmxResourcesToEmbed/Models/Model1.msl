@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myGenieNetworkDBModelStoreContainer" CdmEntityContainer="myGenieNetworkDBEntities">
+    <EntitySetMapping Name="Signupformemberships">
+      <EntityTypeMapping TypeName="myGenieNetworkDBModel.Signupformembership">
+        <MappingFragment StoreEntitySet="Signupformembership">
+          <ScalarProperty Name="member_Id" ColumnName="member_Id" />
+          <ScalarProperty Name="member_firstname" ColumnName="member_firstname" />
+          <ScalarProperty Name="member_lastname" ColumnName="member_lastname" />
+          <ScalarProperty Name="member_emailaddress" ColumnName="member_emailaddress" />
+          <ScalarProperty Name="member_preferredusername" ColumnName="member_preferredusername" />
+          <ScalarProperty Name="member_password" ColumnName="member_password" />
+          <ScalarProperty Name="member_confirmpassword" ColumnName="member_confirmpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
