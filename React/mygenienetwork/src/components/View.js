@@ -1,29 +1,38 @@
-import React from "react";
-import "../App.css";
-const View = props => {
-  return (
-    <div className="form-wrapper">
-      <form onSubmit={props.confirm}>
-        <h1>Confirm Details</h1>
-        <div className="firstname">
-          <label htmlFor="firstname">First Name</label>
+import React from 'react';
+import ViewPage from '../containers/ViewPage';
+import '../App.css';
+const View = (props) => {
+    const style={
+        backgroundColor:'green',
+        font:'inherit',
+        border:'1px solid blue',
+        padding:'8px',
+        cursor:'pointer'
+    };
+    return (
+        
+        <div className="form-wrapper">
+            <form onSubmit={props.confirm}>
+            <h1>Confirm Details</h1>
+            <div className="firstname">
+              <label htmlFor="firstname">First Name</label>
+              
+              <p>{props.signinFirstName}</p>
+             </div>
 
-          <p>{props.signinFirstName}</p>
-        </div>
-
-        <div className="lastname">
-          <label htmlFor="lastname">Last Name</label>
-          <p>{props.signinLastName}</p>
-        </div>
-        <div className="emailaddress">
-          <label htmlFor="emailaddress">Email Address</label>
-          <p>{props.signinEmailAddress}</p>
-        </div>
-        <div className="preferredusername">
-          <label htmlFor="preferredusername">User Name</label>
-          <p>{props.signinUserName}</p>
-        </div>
-        {/* <div className="password">
+             <div className="lastname">
+              <label htmlFor="lastname">Last Name</label>
+            <p>{props.signinLastName}</p>
+            </div>
+            <div className="emailaddress">
+              <label htmlFor="emailaddress">Email Address</label>
+            <p>{props.signinEmailAddress}</p>
+            </div>
+            <div className="preferredusername">
+              <label htmlFor="preferredusername">User Name</label>
+            <p>{props.signinUserName}</p>
+            </div>
+            {/* <div className="password">
               <label htmlFor="password">Password</label>
               <p>{props.signinPassword}</p>
             </div>
@@ -32,19 +41,19 @@ const View = props => {
             
             <p>{props.signinConfirmPassword}</p>
             </div> */}
-        <div className="createaccount">
-          <button type="button" onClick={props.confirm}>
-            Confirm
-          </button>
-        </div>
-      </form>
-      <p className="createaccount">
-        <button type="button" onClick={props.back}>
-          Edit Details
-        </button>
-      </p>
-    </div>
-  );
-};
-
-export default View;
+            <div className="createaccount">
+           <button type="button"  onClick={props.confirm}  
+           >Confirm</button>
+            </div>
+            
+            </form>
+            <p className="createaccount">
+            <button type="button"  onClick={props.back}  
+           >Edit Details</button>
+            </p>
+            </div>
+            
+        )
+    };
+    
+ export default View;

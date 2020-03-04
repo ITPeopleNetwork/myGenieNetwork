@@ -5,6 +5,7 @@ import View from "../components/View";
 import axios from 'axios';
 import './ViewPage.css';
 const emailRegex = RegExp(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/);
+let enabled = {};
 class ViewPage extends Component {
     state = {
         firstName: '' ,
@@ -16,15 +17,18 @@ class ViewPage extends Component {
         formErrors: {
             firstName: "",
             lastName: "",
-            emailAddress: "",
-            preferredUsername: "",
+           emailAddress: "",
+            userName: "",
             password: "",
             confirmPassword: "",
     
           },
 
       Message:'',
-      step: 1
+      step: 1,
+      isDisabled:true,
+     // enabled : false
+
   }
     nextStep = () => {
        // console.log("ramram")
@@ -41,38 +45,135 @@ class ViewPage extends Component {
         });
     }
     handleChange = input => e => {
+       
          this.setState({ [input]: e.target.value });
          const { name, value } = e.target;
          let formErrors = this.state.formErrors;
+         console.log(this.state.formErrors)
+        
+        
          switch (name) {
             case "firstName":
-                formErrors.firstName = value.length < 3 ? "minimum 3 character required"
-                : "";
+              if( (formErrors.firstName = value.length < 3 )  )
+              {
+                
+                this.setState({isDisabled:true});
+                enabled["firstName"] = false;
+               // console.log(this.state.isDisabled);
+                formErrors.firstName="minimum 4 character required"
+              }
+              else{
+                enabled["firstName"] = true;
+              }
+             
               break;
               case "lastName":
-                formErrors.lastName = value.length < 3 ? "minimum 3 character required"
-                  : "";
+                if((formErrors.lastName = value.length < 3)  )
+                {
+                  enabled["lastName"] = false;
+                  this.setState({isDisabled:true});
+               //   console.log(this.state.isDisabled)
+                  formErrors.lastName="minimum 4 character required"
+                } 
+                else{
+                  enabled["lastName"] = true;
+                }
+                         
                 break;
-              case "emailAddress":
-                formErrors.emailAddress = emailRegex.test(value) ? ''
-                  : 'Invalid Email Address';
-                break;
-              case "preferredUsername":
-                formErrors.preferredUsername = value.length < 5 ? "minimum 5 character required"
-                  : "";
+              
+              case "userName":
+                if(formErrors.userName = value.length < 5)
+                {
+                  enabled["userName"] = false;
+                  this.setState({isDisabled:true});
+                //  console.log(this.state.isDisabled)
+                  formErrors.userName="minimum 6 character required"
+                }
+                else{
+                  enabled["userName"] = true;
+                }
+               
                 break;
               case "password":
-                formErrors.password = value.length < 6 ? "minimum 6 character required"
-                  : "";
+                if(formErrors.password = value.length < 5)
+                {
+                  enabled["password"] = false;
+                  enabled["confirm"] = this.state.password;
+                  console.log(enabled["confirm"])
+                  this.setState({isDisabled:true});
+              //    console.log(this.state.isDisabled)
+                  formErrors.password="minimum 5 character required"
+                }  
+                else{
+                  enabled["password"] = true;
+                }
+               
+                
                 break;
               case "confirmPassword":
-                formErrors.confirmPassword = value.length < 6 ? "minimum 6 character required"
-                  : "";
+                
+                if(formErrors.confirmPassword = value.length < 5 )
+                {
+                  enabled["confirmPassword"] = false;
+                  this.setState({isDisabled:true});
+                //  console.log(this.state.isDisabled)
+                 // formErrors.confirmPassword="password not matched"
+                }
+                else
+               
+                {
+                  enabled["confirmPassword"] = true;
+                //  formErrors.confirmPassword="password matched"
+                }
+               
+               
+               
+                break;
+                case "emailAddress":
+                if(emailRegex.test(value))
+                {
+                  enabled["emailAddress"] = true;
+                    }  
+                    
+                    else{
+                      enabled["emailAddress"] = false;
+                      this.setState({isDisabled:true})
+                      formErrors.emailAddress = "Invalid email address"
+                    }
+                            
+                   
                 break;
               default:
                 break;
             }
-            this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+           console.log(enabled["firstName"])
+           console.log(enabled["lastName"])
+           console.log(enabled["emailAddress"])
+           console.log(enabled["userName"])
+           console.log(enabled["password"])
+           console.log(enabled["confirmPassword"])
+            if(enabled["firstName"] && enabled["lastName"] && enabled["emailAddress"] 
+            && enabled["userName"] && enabled["password"] && enabled["confirmPassword"] )
+            {
+              this.setState({isDisabled:false});
+            }
+           
+           
+          // enabled = (formErrors[firstName].length > 2) && (formErrors[lastName].length > 2)
+          //   && (formErrors[emailAddress].length > 4) && (formErrors[password].length> 4) 
+          //   && (formErrors[confirmPassword].length > 4) 
+           //console.log(enabled)
+          //   console.log(formErrors[confirmPassword].length)
+          //  if(enabled ){
+          //     this.setState({isDisabled:false});
+              this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+           //}
+
+           
+
+           
+           // console.log(this.state.isDisabled);
+          //  console.log(this.state.firstName.length)
           };
     
     postDataHandler = () => {
@@ -83,11 +184,11 @@ class ViewPage extends Component {
             member_lastname: this.state.lastName,
             member_emailaddress: this.state.emailAddress,
             member_preferredusername: this.state.userName,
-            member_password: this.state.password,
+            //member_password: this.state.password,
             member_confirmpassword: this.state.confirmPassword,
           };
           console.log(data);
-          axios.post('https://localhost:44383/api/memberSignUp', data)
+          axios.post('https://localhost:44383/api/memberSignup', data)
               .then(response => {
                   console.log(response.data);
                   this.setState({Message:response.data.Message})
@@ -95,12 +196,14 @@ class ViewPage extends Component {
             }
             
     render() {
+      
        
         const { step } = this.state;
         const { firstName, lastName, emailAddress, userName, 
             password, confirmPassword } = this.state;
             const values = { firstName, lastName, emailAddress,
                 userName, password, confirmPassword };
+
         switch (step) {
             case 1:
                 return (
@@ -119,6 +222,7 @@ class ViewPage extends Component {
                     formErr={this.state.formErrors}
                     values={values}
                      click={this.nextStep}
+                     isDisabled={this.state.isDisabled}
                      />
                      </div>
                 )
@@ -129,7 +233,7 @@ class ViewPage extends Component {
                        signinFirstName={this.state.firstName} 
                        signinLastName={this.state.lastName}
                        signinEmailAddress={this.state.emailAddress}
-                       signinUserName={this.state.emailAddress}
+                       signinUserName={this.state.userName}
                        signinPassword={this.state.password}
                       signinConfirmPassword={this.state.confirmPassword}
                        confirm={this.postDataHandler}
