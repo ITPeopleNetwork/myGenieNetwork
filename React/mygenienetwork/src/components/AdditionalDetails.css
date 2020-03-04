@@ -1,0 +1,40 @@
+.Background{
+    margin-right: 1%;
+  }
+  .CurrentJobTitle{
+    margin-right: 1%;
+  }
+  .Background,
+  .CurrentJobTitle,
+  .CompanyName,
+  .EducationalInstitute,
+  .EducationLevel,
+  .Location,
+  .AlterPhoneNumber,
+  .AlterEmail{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .Background,
+  .CurrentJobtitle{
+    width: 100%;
+    
+  }
+  .CompanyName,
+  .EducationalInstitute
+  {
+    width: 100%;
+  }
+  .EducationLevel,
+  .Location{
+    width: 49%;
+    display: inline-block;
+    text-align: left;
+  }
+  .AlterPhoneNumber,
+  .AlterEmail{
+    width: 49%;
+    display: inline-block;
+    text-align: left;
+  }
