@@ -9,7 +9,6 @@
     <Property Name="member_lastname" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="member_emailaddress" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="member_preferredusername" Type="nvarchar" MaxLength="1000" Nullable="false" />
-    <Property Name="member_password" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="member_confirmpassword" Type="nvarchar" MaxLength="1000" Nullable="false" />
   </EntityType>
   <EntityContainer Name="myGenieNetworkDBModelStoreContainer">

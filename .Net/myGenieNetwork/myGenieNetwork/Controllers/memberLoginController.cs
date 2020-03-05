@@ -21,7 +21,7 @@ namespace myGenieNetwork.Controllers
 
                     var loguser = dbContext.Signupformemberships.Where(x => x.member_preferredusername.Equals(employee.member_preferredusername)).FirstOrDefault();
                     var logemail = dbContext.Signupformemberships.Where(x => x.member_emailaddress.Equals(employee.member_emailaddress)).FirstOrDefault();
-                    var logpass = dbContext.Signupformemberships.Where(x => x.member_password.Equals(employee.member_password)).FirstOrDefault();
+                    var logpass = dbContext.Signupformemberships.Where(x => x.member_confirmpassword.Equals(employee.member_confirmpassword)).FirstOrDefault();
                     if (loguser != null && logpass != null)
 
                     {

@@ -14,7 +14,6 @@
           <Property Name="member_lastname" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="member_emailaddress" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="member_preferredusername" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="member_password" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="member_confirmpassword" Type="nvarchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityContainer Name="myGenieNetworkDBModelStoreContainer">
@@ -33,7 +32,6 @@
           <Property Name="member_lastname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="member_emailaddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="member_preferredusername" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="member_password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="member_confirmpassword" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="myGenieNetworkDBEntities" annotation:LazyLoadingEnabled="true">
@@ -53,7 +51,6 @@
                 <ScalarProperty Name="member_lastname" ColumnName="member_lastname" />
                 <ScalarProperty Name="member_emailaddress" ColumnName="member_emailaddress" />
                 <ScalarProperty Name="member_preferredusername" ColumnName="member_preferredusername" />
-                <ScalarProperty Name="member_password" ColumnName="member_password" />
                 <ScalarProperty Name="member_confirmpassword" ColumnName="member_confirmpassword" />
               </MappingFragment>
             </EntityTypeMapping>

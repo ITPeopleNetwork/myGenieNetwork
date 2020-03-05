@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myGenieNetworkDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdditionalInfo">
+    <Key>
+      <PropertyRef Name="AdditionalInfo_Id" />
+    </Key>
+    <Property Name="AdditionalInfo_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdditionalInfo_Background" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_CurrentJobTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_CompanyName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_EducationalInstitute" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_EducationLevel" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalInfo_AlterPhoneNumber" Type="Int64" />
+    <Property Name="AdditionalInfo_AlterEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="myGenieNetworkDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdditionalInfoes" EntityType="Self.AdditionalInfo" />
+  </EntityContainer>
+</Schema>

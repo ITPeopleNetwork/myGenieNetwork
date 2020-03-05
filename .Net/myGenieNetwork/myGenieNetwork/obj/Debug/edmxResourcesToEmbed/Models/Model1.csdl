@@ -9,7 +9,6 @@
     <Property Name="member_lastname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="member_emailaddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="member_preferredusername" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="member_password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="member_confirmpassword" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="myGenieNetworkDBEntities" annotation:LazyLoadingEnabled="true">

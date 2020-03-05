@@ -21,5 +21,9 @@ namespace myGenieNetwork.Models
         public string member_preferredusername { get; set; }
         public string member_password { get; set; }
         public string member_confirmpassword { get; set; }
+        public string emailaddress { get; set; }
+        public string old_password { get; set; }
+        public string new_password { get; set; }
+
     }
 }

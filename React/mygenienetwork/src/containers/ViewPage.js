@@ -4,6 +4,7 @@ import Login from "../components/login/Login";
 import View from "../components/View";
 import axios from 'axios';
 import './ViewPage.css';
+import AdditionalDetails from './AdditionalDetails';
 const emailRegex = RegExp(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/);
 let enabled = {};
 class ViewPage extends Component {
@@ -193,6 +194,7 @@ class ViewPage extends Component {
                   console.log(response.data);
                   this.setState({Message:response.data.Message})
               })
+              this.nextStep();
             }
             
     render() {
@@ -243,7 +245,10 @@ class ViewPage extends Component {
                     </div>
                 )
             case 3:
-                return <h1>Success</h1>
+                return (<div>
+                  <AdditionalDetails/>
+                  </div>
+                )
         }
     }
 }
