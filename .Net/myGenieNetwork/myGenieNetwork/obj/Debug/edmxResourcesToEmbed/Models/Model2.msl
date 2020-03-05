@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myGenieNetworkDBModel1StoreContainer" CdmEntityContainer="myGenieNetworkDBEntities1">
+    <EntitySetMapping Name="AdditionalInfoes">
+      <EntityTypeMapping TypeName="myGenieNetworkDBModel1.AdditionalInfo">
+        <MappingFragment StoreEntitySet="AdditionalInfo">
+          <ScalarProperty Name="AdditionalInfo_Id" ColumnName="AdditionalInfo_Id" />
+          <ScalarProperty Name="AdditionalInfo_Background" ColumnName="AdditionalInfo_Background" />
+          <ScalarProperty Name="AdditionalInfo_CurrentJobTitle" ColumnName="AdditionalInfo_CurrentJobTitle" />
+          <ScalarProperty Name="AdditionalInfo_CompanyName" ColumnName="AdditionalInfo_CompanyName" />
+          <ScalarProperty Name="AdditionalInfo_EducationalInstitute" ColumnName="AdditionalInfo_EducationalInstitute" />
+          <ScalarProperty Name="AdditionalInfo_EducationLevel" ColumnName="AdditionalInfo_EducationLevel" />
+          <ScalarProperty Name="AdditionalInfo_Location" ColumnName="AdditionalInfo_Location" />
+          <ScalarProperty Name="AdditionalInfo_AlterPhoneNumber" ColumnName="AdditionalInfo_AlterPhoneNumber" />
+          <ScalarProperty Name="AdditionalInfo_AlterEmail" ColumnName="AdditionalInfo_AlterEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

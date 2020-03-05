@@ -5,6 +5,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import UserLoginpage from "./containers/UserLoginpage";
 import Home from "./components/login/Home";
 import FileUpload from './containers/FileUpload'
+import AdditionalDetails from "./containers/AdditionalDetails";
+import Hello from "./containers/Hello";
 class App extends Component {
   state = {
     visible: true
@@ -37,6 +39,9 @@ class App extends Component {
           <Route path="/UserLoginpage" exact component={UserLoginpage} />
           <Route path="/ViewPage" exact component={ViewPage} />
           <Route path="/FileUpload" exact component={FileUpload} />
+          <Route path="/AdditionalDetails" exact component={AdditionalDetails} />
+          <Route path="/Hello" exact component={Hello} />
+
           {/* <ValidationForm />
         <Login/>
         <Home/> */}

@@ -10,4 +10,8 @@ namespace myGenieNetwork.Responses
         public string Status { set; get; }
         public string Message { set; get; }
     }
+    public class Message
+    {
+        public string Status { set; get; }
+    }
 }
